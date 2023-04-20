@@ -28,7 +28,7 @@ loops.everyInterval(200, function () {
 loops.everyInterval(input.temperature() * 100, function () {
     _this = game.createSprite(4, randint(0, 4))
     for (let index = 0; index < 4; index++) {
-        basic.pause(randint(50, 200))
+        basic.pause(input.temperature() * 10)
         _this.change(LedSpriteProperty.X, -1)
         if (_this.isTouching(main)) {
             game.removeLife(1)
