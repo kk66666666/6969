@@ -1,5 +1,5 @@
 let _this: game.LedSprite = null
-let main = game.createSprite(2, 2)
+let main = game.createSprite(1, 2)
 let lose = 0
 let score = 0
 game.setLife(5)
@@ -16,10 +16,11 @@ basic.forever(function () {
     }
 })
 loops.everyInterval(200, function () {
+    main.set(LedSpriteProperty.Brightness, Math.abs(input.acceleration(Dimension.X)) * 0.1 + 100)
     if (input.lightLevel() < 50) {
         main.change(LedSpriteProperty.Y, -1)
         basic.pause(500)
-    } else if (60 < input.acceleration(Dimension.Strength)) {
+    } else if (200 < input.lightLevel()) {
         main.change(LedSpriteProperty.Y, 1)
         basic.pause(500)
     }
